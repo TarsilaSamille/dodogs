@@ -1,49 +1,100 @@
+@import '~antd/dist/antd.css';
 @tailwind base;
 
 /* Write your own custom base styles here */
 
+
 /* Start purging... */
+
 @tailwind components;
+
 /* Stop purging. */
 
+
 /* Write your own custom component styles here */
+
 p {
-  @apply mb-3;
+    @apply mb-3;
 }
 
 h1 {
-  @apply text-4xl;
-  @apply mb-3;
+    @apply text-4xl;
+    @apply mb-3;
 }
 
 h2 {
-  @apply text-xl;
-  @apply mb-3;
+    @apply text-xl;
+    @apply mb-3;
 }
 
 ul {
-  @apply list-disc;
-  @apply list-inside;
-  @apply mb-3;
+    @apply list-disc;
+    @apply list-inside;
+    @apply mb-3;
 }
 
 code {
-  @apply px-1;
-  @apply bg-gray-100;
-  @apply rounded;
+    @apply px-1;
+    @apply bg-gray-100;
+    @apply rounded;
 }
 
-.app-link {
-  @apply text-blue-700;
-  @apply font-medium;
-}
-
-.app-link:hover {
-  @apply underline;
-}
 
 /* Start purging... */
+
 @tailwind utilities;
+
 /* Stop purging. */
 
+
 /* Your own custom utilities */
+
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+
+/* Accordion styles */
+
+input[type=checkbox].aaa {
+    -webkit-appearance: none;
+}
+
+.tabs {
+    overflow: hidden;
+}
+
+.tab {
+    overflow: hidden;
+}
+
+.tab-label {
+    display: hidden;
+    /* Icon */
+}
+
+
+/* .tab-content {
+    max-height: 0;
+    padding: 0 1em;
+    transition: all 0.35s;
+}
+
+.tab-close {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1em;
+    cursor: pointer;
+}
+
+input:checked+.tab-label::after {
+    transform: rotate(90deg);
+}
+
+
+/* 
+/* 
+input:checked~.tab-content {
+    max-height: 100vh;
+    padding: 1em;
+} */

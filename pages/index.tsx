@@ -1,88 +1,45 @@
 import getConfig from "next/config";
 import Head from "next/head";
+import React from "react";
 import Layout from "../components/layout";
+import Cardapio from "../components/cardapio";
+import { getDatabaseEntries } from "../utils/notion";
 
 const { publicRuntimeConfig } = getConfig();
-const { title } = publicRuntimeConfig.siteMetaData;
-
-const Home = () => {
-  return (
-    <Layout>
-      <section className="py-12">
-        <div className="container mx-auto px-4">
-          <h1>{title}</h1>
-          <p>Welcome to my Next.js + Tailwind CSS starter template.</p>
-
-          <h2>Additions:</h2>
-          <ul>
-            <li>
-              Pre-configured <code>postcss.config.js</code>
-              .
-            </li>
-            <li>
-              Pre-configured{" "}
-              <code>tailwind.config.js</code>.
-            </li>
-            <li>
-              <code>global.css</code> that contains
-              Tailwind CSS directives.
-            </li>
-            <li>
-              <code>{"<Layout />"}</code> component.
-            </li>
-            <li>Purging styles using PurgeCSS.</li>
-          </ul>
-
-          <h2>Guides</h2>
-          <ul>
-            <li>
-              <a
-                href="https://nextjs.org/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="app-link"
-              >
-                Next.js
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://tailwindcss.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="app-link"
-              >
-                Tailwind CSS
-              </a>
-            </li>
-          </ul>
-
-          <h2>Maintainer</h2>
-          <p>
-            This project template is maintained by{" "}
-            <a
-              href="https://earvinpiamonte.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="app-link"
-            >
-              @earvinpiamonte
-            </a>{" "}
-            and publicly available on{" "}
-            <a
-              href="https://github.com/earvinpiamonte/nextjs-tailwindcss-template"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="app-link"
-            >
-              GitHub
-            </a>
-            .
-          </p>
-        </div>
-      </section>
-    </Layout>
-  );
+const format = (itens) => {
+  return itens.map((item) => {
+    let i = item.properties;
+    return {
+      nome: i["Descrição"].title[0].plain_text,
+      tipo: i.Tipo.select.name,
+      ingredientes: i["Ingredientes"].rich_text[0]
+        ? i["Ingredientes"].rich_text[0].plain_text
+        : "",
+      disponivel: i["Disponivel"].checkbox,
+      preco: i["Valor"].formula.string,
+      imagem:  i["Imagem"].rich_text[0]
+      ? i["Imagem"].rich_text[0].plain_text
+      : "",
+      quantidade: 0,
+    };
+  });
 };
 
-export default Home;
+export default function Home({ cardapio }) {
+  cardapio = format(cardapio).filter( i => i.disponivel == true);
+
+  return (
+    <Layout>
+      <Cardapio itens={cardapio}/>
+    </Layout>
+  );
+}
+export async function getStaticProps() {
+  const entries = await getDatabaseEntries();
+  return {
+    props: {
+      cardapio: entries,
+    },
+    revalidate: 15,
+  };
+}

@@ -1,3 +1,4 @@
+import { Footer } from "antd/lib/layout/layout";
 import getConfig from "next/config";
 import Head from "next/head";
 import { useRouter } from "next/router";
@@ -70,6 +71,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         <meta name="description" content={description} key="description" />
         <title key="title">{title}</title>
       </Head>
+      
       <main>{children}</main>
     </>
   );
