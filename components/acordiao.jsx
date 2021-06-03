@@ -5,7 +5,7 @@ function Acordiao({ nome, objeto, tipo }) {
   
   return (
     <>
-      <div class="tabs">
+      <div >
         <div class="tab ">
           <input type="checkbox" class="aaa" id="chck1" checked={isOpen} />
           {tipo != 1 ? (
@@ -60,7 +60,7 @@ function Acordiao({ nome, objeto, tipo }) {
             </svg>
           </label> </div>
           )}
-              <div style={{  maxHeight:  isOpen ?"100vh" : "0vh"}} class="tab-content">{objeto}</div>
+              <div style={{  maxHeight:  isOpen ?"100%" : "0%"}} class="tab-content">{objeto}</div>
         </div>
       </div>
     </>

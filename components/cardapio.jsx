@@ -296,7 +296,7 @@ function Cardapio({ itens }) {
             ))}
           </div>
         </div>
-                    <Total p={produtos}/>
+                    <Total p={produtos} a={acais}/>
 
       </div>
     </>
