@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import ItemCardapioPricipal from "./item_cardapio";
 import ItemCardapioSecundario from "./item_cardapio_secundarios";
 import ItemCardapioTerciario from "./item_cardapio_terciarios";
-import Total from "./total";
 import { useCardapio } from "./cardapio_context";
 import Accordion from "./acordiao";
+import Total from "./total";
+import Footer from "./footer";
 
 const formatAcai = (item, idx) => {
   return {
@@ -22,7 +23,8 @@ const formatProduto = (item) => {
   };
 };
 function Cardapio({ itens }) {
-  const { cardapio, setCardapio, acais, setAcais, setProdutos, height } = useCardapio();
+  const { cardapio, setCardapio, acais, setAcais, setProdutos, height } =
+    useCardapio();
 
   const cardapioTipo = (tipoC) => {
     return cardapio.filter((i) => i.tipo == tipoC);
@@ -184,7 +186,8 @@ function Cardapio({ itens }) {
               </div>
             }
           />
-          <div style={{height: height}}></div>
+          <div style={{ height: height }}></div>
+            <Footer/>
         </div>
         <Total />
       </div>
