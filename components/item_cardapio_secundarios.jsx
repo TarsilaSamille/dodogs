@@ -1,13 +1,20 @@
 import React, { useEffect, useState, useReducer } from "react";
+import { useCardapio } from "./cardapio_context";
 
-function ItemCardapioSecundario({ i, change }) {
+function ItemCardapioSecundario({ i }) {
+  const { setQuantidade } = useCardapio();
+
+ 
   const reducer = (state, action) => {
     switch (action.type) {
       case "add":
+        setQuantidade(item.quantidade + 1, i);
         return state + 1;
       case "subtract":
+        setQuantidade(item.quantidade - 1, i);
         return state - 1;
       case "input":
+        if (action.num >= 0) setQuantidade(action.num, i);
         return action.num >= 0 && action.num;
       default:
         throw new Error("Unexpected action");
@@ -15,25 +22,23 @@ function ItemCardapioSecundario({ i, change }) {
   };
 
   const [item, setItem] = useState(i);
-  const initialState = i.quantidade;
-  const [total, dispatch] = useReducer(reducer, initialState);
+  const [total, dispatch] = useReducer(reducer,  i.quantidade);
 
   useEffect(() => {
     setItem({ ...i, quantidade: total });
-    change(total, i);
   }, [total, i]);
 
   return (
     <>
       <div
-        class="bg-roxo3 flex flex-col justify-between
+        className="bg-roxo3 flex flex-col justify-between
  shadow-2xl rounded-lg overflow-hidden p-4 items-center text-center"
       >
-        <div class="">
-          <h1 class="text-white font-bold text-2xl ">{item.nome}</h1>
+        <div className="">
+          <h1 className="text-white font-bold text-2xl ">{item.nome}</h1>
         </div>
-          <div class="">
-            <h1 class="text-white font-bold text-base my-auto">
+          <div className="">
+            <h1 className="text-white font-bold text-base my-auto">
               <span>Preço:  R$ {parseFloat(item.preco).toFixed(2)}</span>
               {total != 0 && (
                 <span>
@@ -43,7 +48,7 @@ function ItemCardapioSecundario({ i, change }) {
               )}
             </h1>
           </div>
-          <div class="flex items-center text-base font-bold text-ml  uppercase rounded text-white">
+          <div className="flex items-center text-base font-bold text-ml  uppercase rounded text-white">
             <button
               type="button"
               onClick={
@@ -51,14 +56,14 @@ function ItemCardapioSecundario({ i, change }) {
                   ? () => dispatch({ type: "subtract" })
                   : () => dispatch({ type: "input", num: 0 })
               }
-              class="bg-roxo2 w-10 border-l border-t border-b 
+              className="bg-roxo2 w-10 border-l border-t border-b 
                  font-medium rounded-l-md hover:bg-roxo4 py-2"
             >
               -
             </button>
             <input
               type="number"
-              class={
+              className={
                 total > 9
                   ? "pl-2 bg-roxo2 w-12 border  font-medium hover:bg-roxo4 py-2"
                   : "px-4 bg-roxo2 w-12 border  font-medium hover:bg-roxo4 py-2"
@@ -72,7 +77,7 @@ function ItemCardapioSecundario({ i, change }) {
             <button
               type="button"
               onClick={() => dispatch({ type: "add" })}
-              class="bg-roxo2 w-10 border-t border-b border-r 
+              className="bg-roxo2 w-10 border-t border-b border-r 
                  font-medium rounded-r-md  hover:bg-roxo4 py-2"
             >
               +

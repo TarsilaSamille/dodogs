@@ -6,7 +6,7 @@ const Accordion = ({ heading, content, tipo }) => {
     <>
       <div>
         <div
-          className={ ( tipo ?  "text-lg " : "text-4xl ") + "font-bold text-white  p-5 tab-label flex justify-between flex-center"}
+          className=" font-bold  text-white text-3xl p-5 tab-label flex justify-between flex-center"
           onClick={() => setIsActive(!isActive)}
         >
           <h3 className="text-white">{heading}</h3>

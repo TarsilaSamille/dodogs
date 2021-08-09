@@ -69,7 +69,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         />
 
         <meta name="description" content={description} key="description" />
-        <title key="title">{title}</title>
+        <title key="title">Dodog's</title>
       </Head>
       
       <main>{children}</main>

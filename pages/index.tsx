@@ -1,11 +1,9 @@
-import getConfig from "next/config";
-import Head from "next/head";
 import React from "react";
 import Layout from "../components/layout";
 import Cardapio from "../components/cardapio";
 import { getDatabaseEntries } from "../utils/notion";
+import { CardapioContext, useCardapioContext } from "../components/cardapio_context";
 
-const { publicRuntimeConfig } = getConfig();
 const format = (itens) => {
   return itens.map((item) => {
     let i = item.properties;
@@ -27,10 +25,12 @@ const format = (itens) => {
 
 export default function Home({ cardapio }) {
   cardapio = format(cardapio).filter( i => i.disponivel == true);
-
+  const cardapioContext = useCardapioContext();
   return (
     <Layout>
-      <Cardapio itens={cardapio}/>
+      <CardapioContext.Provider value={cardapioContext}>
+        <Cardapio itens={cardapio}/>
+      </CardapioContext.Provider>
     </Layout>
   );
 }
