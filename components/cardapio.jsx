@@ -58,8 +58,10 @@ function Cardapio({ itens }) {
     <>
       <div>
         <div className="bg-roxo4 p-16 font-mono ">
-          <h1 className="text-white font-bold pl-9 text-6xl text-center pt-5">
-            Cardapio
+          <h1 className="text-white 
+           font-bold pl-9 text-5xl
+            md:text-1xl text-center pt-5">
+            Cardápio
           </h1>
           <Accordion
             heading={"1.Dodog's"}

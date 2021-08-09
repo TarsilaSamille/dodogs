@@ -67,6 +67,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           content={`630`}
           key="og_image_height"
         />
+        <meta name="viewport" content="width=device-width, initial-scale=0.9"/>
 
         <meta name="description" content={description} key="description" />
         <title key="title">Dodog's</title>

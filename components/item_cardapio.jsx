@@ -31,13 +31,15 @@ function ItemCardapioPricipal({ i }) {
   return (
     <>
       <div
-        className="flex max-w-md bg-roxo3 shadow-2xl rounded-lg overflow-hidden pr-4"
+        className="max-w-md bg-roxo3  shadow-2xl rounded-lg overflow-hidden pr-4
+        flex flex-col md:flex-row  justify-between items-center text-center md:text-left
+        "
       >
-        <div className="w-2/3 p-4 flex flex-col justify-between ">
+        <div className="w-2/3 p-4 flex flex-col justify-between">
           <h1 className="text-white font-bold text-2xl ">{item.nome}</h1>
-          <p className="text-white text-sm">{item.ingredientes}</p>
+          <p className="text-white text-sm  text-left">{item.ingredientes}</p>
 
-          <div className="flex justify-between  items-end ">
+          <div className="flex justify-between  items-end   text-left">
             <h1 className="text-white font-bold text-base my-auto">
               <span>Preço: R$ {parseFloat(item.preco).toFixed(2)}</span>
               {total != 0 && (
@@ -56,7 +58,8 @@ function ItemCardapioPricipal({ i }) {
               src={"images/sand/" + item.imagem + ".png"}
             />
           </div>
-          <div className="flex  items-center text-base font-bold text-ml  pb-4 uppercase rounded text-white">
+          <div className="flex  items-center text-base font-bold text-ml 
+          pb-4 uppercase rounded text-white">
             <button
               type="button"
               onClick={
