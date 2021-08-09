@@ -1,17 +1,17 @@
 module.exports = {
   publicRuntimeConfig: {
     siteMetaData: {
-      name: "Next.js + Tailwind CSS template",
+      name: "Dodog's Cardapio",
       url:
         process.env.NODE_ENV === "development" ? "http://localhost:3000" : "/",
-      title: "Next.js + Tailwind CSS template",
-      description: "Next.js + Tailwind CSS template",
-      twitterHandle: "earvinpiamonte",
+      title: "Dodog's Cardapio",
+      description: "Dodog's Cardapio",
+      twitterHandle: "a",
       socialPreview: "/images/preview.png",
     },
   },
   i18n: {
-    locales: ["en-US"],
-    defaultLocale: "en-US",
+    locales: ["pt-BR"],
+    defaultLocale: "pt-BR",
   },
 };
