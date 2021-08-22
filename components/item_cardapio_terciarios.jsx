@@ -132,26 +132,6 @@ function ItemCardapioTerciario({ i }) {
         ))}
       </div>
 
-      <h1 className="text-white font-bold text-xl ">Cremes</h1>
-
-      <div className="flex justify-center  flex-wrap text-base">
-        {cardapioTipo("Cremes").map((i, indx) => (
-          <div className=" mr-4 mb-2 text-white" key={indx}>
-            <input
-              className="bg-roxo3"
-              type="checkbox"
-              key={indx}
-              name="A3-confirmation"
-              defaultChecked={false}
-              onChange={(e) => {
-                onChangeCheck(e.target.checked, i.nome);
-              }}
-            />
-            <label className="select-none"> {i.nome}</label>
-          </div>
-        ))}
-      </div>
-
       <h1 className="text-white font-bold text-xl ">Frutas</h1>
 
       <div className="flex justify-center  flex-wrap text-base">
