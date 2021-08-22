@@ -82,7 +82,7 @@ function ItemCardapioTerciario({ i }) {
         </h6>
         {i.ingredientes.length > 0 && (
           <h6 className="text-white font-bold text-1xl ">
-            {i.ingredientes.length} Recheios: {i.ingredientes.join(", ")}.
+            {i.ingredientes.length} Recheio(s): {i.ingredientes.join(", ")}.
           </h6>
         )}
         {i.acrescimo > 0 && (
