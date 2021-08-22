@@ -74,15 +74,15 @@ function ItemCardapioTerciario({ i }) {
       </div>
       <p></p>
       <div className="">
-      <h1 className="text-white font-bold text-2xl ">Coisinhas</h1>
+      <h1 className="text-white font-bold text-2xl ">Recheios</h1>
 
         <h6 className="text-white font-bold text-1xl ">
-          Máximo de {i.maximo} coisinhas (acréscimos de R$ {ACRESCIMO} por
+          Máximo de {i.maximo} recheios (acréscimos de R$ {ACRESCIMO} por
           coisinhas)
         </h6>
         {i.ingredientes.length > 0 && (
           <h6 className="text-white font-bold text-1xl ">
-            {i.ingredientes.length} Coisinhas: {i.ingredientes.join(", ")}.
+            {i.ingredientes.length} Recheios: {i.ingredientes.join(", ")}.
           </h6>
         )}
         {i.acrescimo > 0 && (
