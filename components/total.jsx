@@ -42,7 +42,8 @@ function Total() {
                       content={
                         <div>
                           <div className="flex flex-col flex space-x-3 ">
-                            {produtos.map((i, indx) => (
+                            {produtos
+                            .map((i, indx) => (
                               <div key={i.nome + i.quantidade + indx}>
                                 {i.quantidade} {i.nome} = {rs(i.preco)}
                                 <br />
@@ -77,7 +78,8 @@ function Total() {
                       href={
                         "https://api.whatsapp.com/send?phone=5584988493569&text=" +
                         encodeURIComponent(
-                          produtos.map(
+                          produtos
+                          .map(
                             (i) =>
                               "\n" +
                               i.quantidade +

@@ -68,7 +68,9 @@ function Cardapio({ itens }) {
             heading={"1.Dodog's"}
             content={
               <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8">
-                {cardapioTipo("Dodog's").map((i, indx) => (
+                {cardapioTipo("Dodog's")
+                .sort((a,b) => a.preco < b.preco ? -1 : 1)
+                .map((i, indx) => (
                   <ItemCardapioPricipal i={i} key={indx + i.nome} />
                 ))}
               </div>
@@ -78,7 +80,9 @@ function Cardapio({ itens }) {
             heading={"2.Sanduiche"}
             content={
               <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 pt-6 gap-8">
-                {cardapioTipo("Sanduiche").map((i, indx) => (
+                {cardapioTipo("Sanduiche")
+                .sort((a,b) => a.preco < b.preco ? -1 : 1)
+                .map((i, indx) => (
                   <ItemCardapioPricipal i={i} key={indx + i.nome} />
                 ))}
               </div>
@@ -88,7 +92,9 @@ function Cardapio({ itens }) {
             heading={"3.X-Algo"}
             content={
               <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 pt-6 gap-8">
-                {cardapioTipo("X-Algo").map((i, indx) => (
+                {cardapioTipo("X-Algo")
+                .sort((a,b) => a.preco < b.preco ? -1 : 1)
+                .map((i, indx) => (
                   <ItemCardapioPricipal i={i} key={indx + i.nome} />
                 ))}{" "}
               </div>
@@ -172,7 +178,9 @@ function Cardapio({ itens }) {
             content={
               <div>
                 <div className="grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5  pt-6 gap-8">
-                  {cardapioTipo("Açai Tamanho").map((i, indx) => (
+                  {cardapioTipo("Açai Tamanho")
+                                  .sort((a,b) => a.preco < b.preco ? -1 : 1)
+                                  .map((i, indx) => (
                     <ItemCardapioSecundario i={i} key={indx + i.nome} />
                   ))}
                 </div>
