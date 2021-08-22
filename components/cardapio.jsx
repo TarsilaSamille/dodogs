@@ -28,7 +28,8 @@ function Cardapio({ itens }) {
     useCardapio();
 
   const cardapioTipo = (tipoC) => {
-    return cardapio.filter((i) => i.tipo == tipoC);
+    return cardapio.filter((i) => i.tipo == tipoC)
+    .sort((a,b) => a.preco < b.preco ? -1 : 1);
   };
 
   useEffect(() => {
@@ -69,7 +70,6 @@ function Cardapio({ itens }) {
             content={
               <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8">
                 {cardapioTipo("Dodog's")
-                .sort((a,b) => a.preco < b.preco ? -1 : 1)
                 .map((i, indx) => (
                   <ItemCardapioPricipal i={i} key={indx + i.nome} />
                 ))}
@@ -81,7 +81,6 @@ function Cardapio({ itens }) {
             content={
               <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 pt-6 gap-8">
                 {cardapioTipo("Sanduiche")
-                .sort((a,b) => a.preco < b.preco ? -1 : 1)
                 .map((i, indx) => (
                   <ItemCardapioPricipal i={i} key={indx + i.nome} />
                 ))}
@@ -93,7 +92,6 @@ function Cardapio({ itens }) {
             content={
               <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 pt-6 gap-8">
                 {cardapioTipo("X-Algo")
-                .sort((a,b) => a.preco < b.preco ? -1 : 1)
                 .map((i, indx) => (
                   <ItemCardapioPricipal i={i} key={indx + i.nome} />
                 ))}{" "}
