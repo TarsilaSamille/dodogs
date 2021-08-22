@@ -31,8 +31,8 @@ function ItemCardapioSecundario({ i }) {
   return (
     <>
       <div
-        className="bg-roxo3 flex flex-col justify-between
- shadow-2xl rounded-lg overflow-hidden p-4 items-center text-center"
+        className="bg-roxo3 flex flex-col justify-between items-center text-center 
+ shadow-2xl rounded-lg overflow-hidden p-4"
       >
         <div className="">
           <h1 className="text-white font-bold text-2xl ">{item.nome}</h1>

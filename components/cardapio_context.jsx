@@ -34,6 +34,19 @@ export function useCardapioContext() {
     );
   };
 
+  const setCremes2 = (cre, nome) => {
+    setAcais(
+      acais.map((a) =>
+        a.nome == nome
+          ? {
+              ...a,
+              cremes: a.cremes ? cre : a.cremes,
+            }
+          : a
+      )
+    );
+  };
+
   const setAcrescimos = (acresc, nome) => {
     setAcais(
       acais.map((a) =>
@@ -61,6 +74,7 @@ export function useCardapioContext() {
       setAcrescimos,
       height,
       setHeight,
+      setCremes2
     }),
     [
       cardapio,
@@ -76,6 +90,7 @@ export function useCardapioContext() {
       setAcrescimos,
       height,
       setHeight,
+      setCremes2
     ]
   );
   return cardapioContext;

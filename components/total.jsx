@@ -88,7 +88,7 @@ function Total() {
                           ) +
                             "\n----------------------------------------------------------------\n" +
                             acais.map(
-                              (i) => "\n" + i.nome + " " + i.ingredientes
+                              (i) => "\n" + i.nome + "\nCremes: " + i.cremes + ".\nIngredientes: " + i.ingredientes 
                             ) +
                             "\n----------------------------------------------------------------\n" +
                             "\nTotal = " +
