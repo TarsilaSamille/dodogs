@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useReducer } from "react";
 import { useCardapio } from "./cardapio_context";
 
-function ItemCardapioPricipal({ i }) {
+function ItemCardapioPricipal({ i, indice }) {
 
   const { setQuantidade } = useCardapio();
 
@@ -26,6 +26,7 @@ function ItemCardapioPricipal({ i }) {
 
   useEffect(() => {
     setItem({ ...item, quantidade: total });
+    console.log(indice)
   }, [total]);
 
   return (
@@ -36,7 +37,7 @@ function ItemCardapioPricipal({ i }) {
         "
       >
         <div className="w-2/3 p-4 flex flex-col justify-between">
-          <h1 className="text-white font-bold text-2xl ">{item.nome}</h1>
+          <h1 className="text-white font-bold text-2xl ">{indice}.{item.nome}</h1>
           <p className="text-white text-sm  text-left">{item.ingredientes}</p>
 
           <div className="flex justify-between  items-end   text-left">
